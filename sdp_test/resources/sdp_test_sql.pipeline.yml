@@ -1,9 +1,9 @@
-# The main pipeline for sdp_test
+# SQL transformations pipeline for sdp_test
 
 resources:
   pipelines:
-    sdp_test_etl:
-      name: sdp_test_etl
+    sdp_test_sql:
+      name: sdp_test_sql
       catalog: ${var.catalog}
       schema: ${var.schema}
       serverless: true
@@ -11,7 +11,7 @@ resources:
 
       libraries:
         - glob:
-            include: ../src/sdp_test_etl/transformations/**
+            include: ../src/sdp_test_etl/transformations/sql/**
 
       environment:
         dependencies:
