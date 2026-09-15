@@ -24,7 +24,7 @@ resources:
       tasks:
         - task_key: refresh_pipeline
           pipeline_task:
-            pipeline_id: ${resources.pipelines.sdp_test_etl.id}
+            pipeline_id: ${resources.pipelines.sdp_test_sql.id}
 
       environments:
         - environment_key: default

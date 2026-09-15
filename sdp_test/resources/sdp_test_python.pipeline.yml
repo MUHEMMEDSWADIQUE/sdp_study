@@ -1,0 +1,20 @@
+# Python transformations pipeline for sdp_test
+
+resources:
+  pipelines:
+    sdp_test_python:
+      name: sdp_test_python
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      root_path: "../src/sdp_test_etl"
+
+      libraries:
+        - glob:
+            include: ../src/sdp_test_etl/transformations/python/**
+
+      environment:
+        dependencies:
+          # We include every dependency defined by pyproject.toml by defining an editable environment
+          # that points to the folder where pyproject.toml is deployed.
+          - --editable ${workspace.file_path}
